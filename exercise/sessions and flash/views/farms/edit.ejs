@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Farm</title>
+  </head>
+  <body>
+    <h1>Edit Farm</h1>
+    <form action="/farms/<%= farm._id %>?_method=PUT" method="POST">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" value="<%= farm.name %>" />
+      </div>
+      <div>
+        <label for="name">City:</label>
+        <input type="text" name="city" id="city" value="<%= farm.city %>" />
+      </div>
+      <label for="name">Email:</label>
+      <input type="email" name="email" id="email" value="<%= farm.email %>" />
+      <button type="submit">Save</button>
+    </form>
+    <a href="/farms/<%= farm._id %>">Cancel</a>
+  </body>
+</html>

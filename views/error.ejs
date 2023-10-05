@@ -1,0 +1,19 @@
+<% layout('layouts/boilerplate') -%>
+<div class="flex flex-col">
+  <h1 class="text-center font-black text-9xl text-dark">Oops!</h1>
+  <p class="font-bold text-xl text-center mt-8 px-0 md:px-64">
+    <%= err.statusCode %> - <%= err.message %>
+  </p>
+  <p class="text-center text-xs px-16 mt-2">
+    This page you are looking for might have been removed <br />
+    had its name changed or is temporarily unavailable.
+  </p>
+  <a
+    href="/campgrounds"
+    class="bg-blue-600 text-white font-medium mx-auto mt-4 px-3 py-2 rounded-full shadow-2xl"
+    >GO TO HOME PAGE</a
+  >
+  <% if (process.env.NODE_ENV !== "production") { %>
+  <p class="mt-5"><%= err.stack %></p>
+  <% } %>
+</div>

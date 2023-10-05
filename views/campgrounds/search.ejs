@@ -1,0 +1,45 @@
+<% layout('layouts/boilerplate') -%>
+<div id="map" class="h-[40vh] rounded-lg"></div>
+
+<%- include("../partials/searchInput.ejs") %> <% if(campgrounds.length) { %>
+<h1 class="text-3xl mt-4 mb-4">
+  Search Result for: <span class="font-bold">"<%= q %>"</span>
+</h1>
+<% } else { %>
+<h1 class="text-3xl mt-4 mb-4">
+  Can't Find: <span class="font-bold">"<%= q %>"</span> :&#40;
+</h1>
+
+<% } %> <% for (let campground of campgrounds) { %>
+<div
+  class="flex gap-x-4 min-w-full h-48 rounded-md border border-gray-200 shadow-lg mb-2 overflow-hidden"
+>
+  <% if(campground.images.length){ %>
+  <img
+    src="<%= campground.images[0].url %>"
+    class="aspect-video w-1/3 object-cover"
+  />
+  <% } else { %>
+  <img
+    src="https://www.seeksophie.com/_next/static/media/default.0346989b.jpeg"
+    class="aspect-video w-1/3 object-cover"
+  />
+  <% } %>
+  <div class="w-2/3 py-2">
+    <p class="font-semibold text-lg"><%= campground.title %></p>
+    <p class="text-sm mb-4s"><%= campground.description %></p>
+    <p class="text-gray-400 text-sm mb-4"><%= campground.location %></p>
+    <a
+      href="/campgrounds/<%= campground._id %>"
+      class="bg-blue-600 text-white text-sm px-2 py-1 rounded-md"
+      >View <%= campground.title %></a
+    >
+  </div>
+</div>
+<% } %>
+
+<script>
+  const mapToken = "<%-process.env.MAPBOX_TOKEN%>";
+  const campgrounds = {features: <%-JSON.stringify(campgrounds)%>};
+</script>
+<script src="/javascripts/clusterMap.js"></script>

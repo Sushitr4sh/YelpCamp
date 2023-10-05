@@ -1,0 +1,154 @@
+<% layout('layouts/boilerplate') -%>
+<div class="mx-auto max-w-[60%]">
+  <h1 class="font-semibold text-3xl mb-2 text-center">New Campground</h1>
+  <form
+    action="/campgrounds"
+    method="POST"
+    class="group"
+    enctype="multipart/form-data"
+    novalidate
+  >
+    <div>
+      <label for="title" class="block">Title:</label>
+      <!-- When you specify name like an array in the bottom example, it will then be saved on the campground object inside the req.body -->
+      <input
+        required
+        type="text"
+        name="campground[title]"
+        id="title"
+        placeholder="Campground Name"
+        class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 peer"
+      />
+      <span class="mt-2 hidden text-sm text-pink-600 peer-[&:invalid]:block">
+        Title is required!
+      </span>
+    </div>
+    <div>
+      <label for="location" class="block">Location:</label>
+      <!-- When you specify name like an array in the bottom example, it will then be saved on the campground object inside the req.body -->
+      <input
+        required
+        type="text"
+        name="campground[location]"
+        id="location"
+        placeholder="Campground Location"
+        class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 transition ease-in 100ms mb-2 peer"
+      />
+      <span class="mt-2 hidden text-sm text-pink-600 peer-[&:invalid]:block">
+        Location is required!
+      </span>
+    </div>
+    <div>
+      <p class="block">Add Images:</p>
+      <!-- When you specify name like an array in the bottom example, it will then be saved on the campground object inside the req.body -->
+      <div class="flex items-center justify-center w-full">
+        <label
+          for="image"
+          class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-200 transition duration-150 ease-in"
+        >
+          <div class="flex flex-col items-center justify-center pt-5 pb-6">
+            <svg
+              class="w-8 h-8 mb-4 text-gray-500"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 20 16"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
+              />
+            </svg>
+            <p class="mb-2 text-sm text-gray-500">
+              <span class="font-semibold">Click to upload</span> or drag and
+              drop
+            </p>
+            <p class="text-xs text-gray-500" id="image-name"></p>
+          </div>
+          <input id="image" name="image" type="file" class="hidden" multiple />
+        </label>
+      </div>
+    </div>
+    <script>
+      var input = document.getElementById("image");
+      var infoArea = document.getElementById("image-name");
+
+      input.addEventListener("change", showFileNames);
+
+      function showFileNames(event) {
+        var input = event.srcElement;
+        var fileNames = [];
+
+        // Iterate through the files and collect their names
+        for (var i = 0; i < input.files.length; i++) {
+          fileNames.push(input.files[i].name);
+        }
+
+        // Create a document fragment to hold the file names and <br> elements
+        var fragment = document.createDocumentFragment();
+
+        // Iterate through the file names and add them to the fragment with <br> elements
+        for (var j = 0; j < fileNames.length; j++) {
+          fragment.appendChild(document.createTextNode(fileNames[j]));
+          fragment.appendChild(document.createElement("br"));
+        }
+
+        // Clear the previous content of the infoArea
+        infoArea.innerHTML = "";
+
+        // Append the fragment with file names and <br> elements to the infoArea
+        infoArea.appendChild(fragment);
+      }
+    </script>
+    <div class="mt-2">
+      <label for="price" class="block">Campground Price:</label>
+      <!-- When you specify name like an array in the bottom example, it will then be saved on the campground object inside the req.body -->
+      <div class="flex flex-wrap mb-2">
+        <div
+          class="flex justify-center items-center aspect-square bg-slate-300 rounded-l-md w-[8%]"
+        >
+          <p>$</p>
+        </div>
+        <input
+          required
+          type="text"
+          name="campground[price]"
+          id="location"
+          placeholder="0.00"
+          class="flex-1 w-full px-3 py-2 bg-white border border-slate-300 rounded-r-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 transition ease-in 100ms peer"
+        />
+        <span
+          class="min-w-full mt-2 hidden text-sm text-pink-600 peer-[&:invalid]:block"
+        >
+          Price is required!
+        </span>
+      </div>
+    </div>
+    <div class="mb-6">
+      <label for="description" class="block">description:</label>
+      <!-- When you specify name like an array in the bottom example, it will then be saved on the campground object inside the req.body -->
+      <textarea
+        required
+        type="text"
+        name="campground[description]"
+        id="description"
+        class="block w-full px-3 py-2 bg-white border border-slate-300 rounded -md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 transition ease-in 100ms peer"
+      ></textarea>
+      <span class="mt-2 hidden text-sm text-pink-600 peer-[&:invalid]:block">
+        Description is required!
+      </span>
+    </div>
+    <button
+      type="submit"
+      class="bg-green-600 text-white rounded-md px-2 py-1 font-medium group-invalid:pointer-events-none group-invalid:opacity-30"
+    >
+      Add Campground
+    </button>
+  </form>
+  <a href="/campgrounds" class="text-blue-600 underline font-medium"
+    >All Campgrounds</a
+  >
+</div>

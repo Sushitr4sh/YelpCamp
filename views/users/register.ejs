@@ -1,0 +1,57 @@
+<%- layout("layouts/boilerplate") %>
+<div class="mx-auto max-w-[60%]">
+  <h1 class="font-semibold text-3xl mb-2 text-center">Register</h1>
+  <form action="/register" method="POST" class="group" novalidate>
+    <div>
+      <label for="username" class="block">Username:</label>
+      <!-- When you specify name like an array in the bottom example, it will then be saved on the campground object inside the req.body -->
+      <input
+        required
+        type="text"
+        name="username"
+        id="username"
+        placeholder="Username"
+        class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 peer"
+      />
+      <span class="mt-2 hidden text-sm text-pink-600 peer-[&:invalid]:block">
+        Username is required!
+      </span>
+    </div>
+    <div>
+      <label for="email" class="block">Email:</label>
+      <!-- When you specify name like an array in the bottom example, it will then be saved on the campground object inside the req.body -->
+      <input
+        required
+        type="email"
+        name="email"
+        id="email"
+        placeholder="email"
+        class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 transition ease-in 100ms mb-2 peer"
+      />
+      <span class="mt-2 hidden text-sm text-pink-600 peer-[&:invalid]:block">
+        Email is required!
+      </span>
+    </div>
+    <div>
+      <label for="password" class="block">Password:</label>
+      <!-- When you specify name like an array in the bottom example, it will then be saved on the campground object inside the req.body -->
+      <input
+        required
+        type="password"
+        name="password"
+        id="password"
+        placeholder="password"
+        class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 transition ease-in 100ms mb-2 peer"
+      />
+      <span class="mt-2 hidden text-sm text-pink-600 peer-[&:invalid]:block">
+        Password is required!
+      </span>
+    </div>
+    <button
+      type="submit"
+      class="bg-green-600 text-white rounded-md px-2 py-1 font-medium group-invalid:pointer-events-none group-invalid:opacity-30"
+    >
+      Register
+    </button>
+  </form>
+</div>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YelpCamp</title>
+    <link rel="stylesheet" href="/stylesheets/output.css" />
+    <link rel="stylesheet" href="/stylesheets/home.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="flex flex-col justify-between w-full h-[100vh] bg-dark py-4">
+    <nav class="flex items-center justify-between w-[60vw] mx-auto">
+      <div>
+        <a href="/" class="text-xl text-white font-semibold mr-2">YelpCamp</a>
+      </div>
+      <div class="text-white">
+        <% if(!currentUser){ %>
+        <a
+          href="/campgrounds"
+          class="opacity-50 hover:opacity-100 hover:underline transition duration-150 ease-in mr-4"
+          >Campgrounds</a
+        >
+        <a
+          href="/login"
+          class="opacity-50 hover:opacity-100 hover:underline transition duration-150 ease-in mr-4"
+          >Login</a
+        >
+        <a
+          href="/register"
+          class="opacity-50 hover:opacity-100 hover:underline transition duration-150 ease-in"
+          >Register</a
+        >
+        <% } else { %>
+        <div class="flex gap-x-2">
+          <a
+            href="/"
+            class="opacity-100 underline transition duration-150 ease-in 50ms mr-4"
+            >Home</a
+          >
+          <a
+            href="/campgrounds"
+            class="opacity-50 hover:opacity-100 hover:underline transition duration-150 ease-in 50ms mr-4"
+            >Campgorunds</a
+          >
+          <a
+            href="/logout"
+            class="opacity-50 hover:opacity-100 hover:underline transition duration-150 ease-in 50ms"
+            >Logout</a
+          >
+        </div>
+        <% } %>
+      </div>
+    </nav>
+
+    <main class="text-center w-[60vw] mx-auto text-white">
+      <a href="/" class="text-4xl font-semibold">YelpCamp</a>
+      <div class="mt-4 mb-6">
+        <p>Welcome to YelpCamp!</p>
+        <p class="mt-1">
+          Jump right in and explore our many campgrounds. <br />
+          Feel free to share some of your own and comment on others!
+        </p>
+      </div>
+      <a
+        href="/campgrounds"
+        class="border border-white rounded-lg text-white py-2 px-4 font-semibold hover:text-[#333] hover:bg-white transition duration-150 ease-in"
+        id="getStarted"
+        >Get Started</a
+      >
+    </main>
+
+    <footer>
+      <p class="text-gray-500 font-medium text-center">&copy;2023</p>
+    </footer>
+  </body>
+</html>

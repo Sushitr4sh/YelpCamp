@@ -1,0 +1,32 @@
+<% if(success && success.length){ %>
+<div
+  class="flex justify-between font-semibold bg-success px-4 py-3 rounded-lg"
+  id="alert"
+>
+  <p><%= success %></p>
+  <button id="btn-close">x</button>
+</div>
+<% } %>
+<br />
+<% if(error && error.length){ %>
+<div
+  class="flex justify-between font-semibold bg-danger px-4 py-3 rounded-lg"
+  id="alert"
+>
+  <p><%= error %></p>
+  <button id="btn-close">x</button>
+</div>
+<% } %>
+
+<script>
+  const alert = document.querySelector("#alert");
+  const btn = document.querySelector("#btn-close");
+  if (btn) {
+    btn.addEventListener("click", (e) => {
+      while (alert.hasChildNodes()) {
+        alert.removeChild(alert.firstChild);
+      }
+      alert.remove();
+    });
+  }
+</script>
