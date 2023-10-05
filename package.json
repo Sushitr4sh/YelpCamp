@@ -2,7 +2,7 @@
   "name": "yelp-camp-2",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "engines": {
     "node": "18.x"
   },
