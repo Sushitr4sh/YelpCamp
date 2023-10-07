@@ -1,11 +1,11 @@
 <% layout('layouts/boilerplate') -%>
 <div id="map" class="h-[40vh] rounded-lg"></div>
 
-<h1 class="font-bold text-3xl mt-4 mb-4">All Campgrounds</h1>
+<h1 class="mb-4 mt-4 text-3xl font-bold">All Campgrounds</h1>
 <%- include("../partials/searchInput.ejs") %> <% for (let campground of
 campgrounds) { %>
 <div
-  class="flex gap-x-4 min-w-full h-48 rounded-md border border-gray-200 shadow-lg mb-2 overflow-hidden"
+  class="mb-2 flex h-48 min-w-full gap-x-4 overflow-hidden rounded-md border border-gray-200 shadow-lg"
 >
   <% if(campground.images.length){ %>
   <img
@@ -19,12 +19,12 @@ campgrounds) { %>
   />
   <% } %>
   <div class="w-2/3 py-2">
-    <p class="font-semibold text-lg"><%= campground.title %></p>
-    <p class="text-sm mb-4s"><%= campground.description %></p>
-    <p class="text-gray-400 text-sm mb-4"><%= campground.location %></p>
+    <p class="text-lg font-semibold"><%= campground.title %></p>
+    <p class="mb-4s text-sm"><%= campground.description %></p>
+    <p class="mb-4 text-sm text-gray-400"><%= campground.location %></p>
     <a
       href="/campgrounds/<%= campground._id %>"
-      class="bg-blue-600 text-white text-sm px-2 py-1 rounded-md"
+      class="rounded-md bg-blue-600 px-2 py-1 text-sm text-white"
       >View <%= campground.title %></a
     >
   </div>

@@ -1,6 +1,6 @@
 <% layout('layouts/boilerplate') -%>
 <div class="mx-auto max-w-[60%]">
-  <h1 class="font-semibold text-3xl mb-2 text-center">New Campground</h1>
+  <h1 class="mb-2 text-center text-3xl font-semibold">New Campground</h1>
   <form
     action="/campgrounds"
     method="POST"
@@ -17,7 +17,7 @@
         name="campground[title]"
         id="title"
         placeholder="Campground Name"
-        class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 peer"
+        class="peer mt-1 block w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm placeholder-slate-400 shadow-sm invalid:border-pink-500 invalid:text-pink-600 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:border-slate-200 disabled:bg-slate-50 disabled:text-slate-500 disabled:shadow-none"
       />
       <span class="mt-2 hidden text-sm text-pink-600 peer-[&:invalid]:block">
         Title is required!
@@ -32,7 +32,7 @@
         name="campground[location]"
         id="location"
         placeholder="Campground Location"
-        class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 transition ease-in 100ms mb-2 peer"
+        class="100ms peer mb-2 mt-1 block w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm placeholder-slate-400 shadow-sm transition ease-in invalid:border-pink-500 invalid:text-pink-600 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:border-slate-200 disabled:bg-slate-50 disabled:text-slate-500 disabled:shadow-none"
       />
       <span class="mt-2 hidden text-sm text-pink-600 peer-[&:invalid]:block">
         Location is required!
@@ -41,14 +41,14 @@
     <div>
       <p class="block">Add Images:</p>
       <!-- When you specify name like an array in the bottom example, it will then be saved on the campground object inside the req.body -->
-      <div class="flex items-center justify-center w-full">
+      <div class="flex w-full items-center justify-center">
         <label
           for="image"
-          class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-200 transition duration-150 ease-in"
+          class="flex h-64 w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 transition duration-150 ease-in hover:bg-gray-200"
         >
-          <div class="flex flex-col items-center justify-center pt-5 pb-6">
+          <div class="flex flex-col items-center justify-center pb-6 pt-5">
             <svg
-              class="w-8 h-8 mb-4 text-gray-500"
+              class="mb-4 h-8 w-8 text-gray-500"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -106,9 +106,9 @@
     <div class="mt-2">
       <label for="price" class="block">Campground Price:</label>
       <!-- When you specify name like an array in the bottom example, it will then be saved on the campground object inside the req.body -->
-      <div class="flex flex-wrap mb-2">
+      <div class="mb-2 flex flex-wrap">
         <div
-          class="flex justify-center items-center aspect-square bg-slate-300 rounded-l-md w-[8%]"
+          class="flex aspect-square w-[8%] items-center justify-center rounded-l-md bg-slate-300"
         >
           <p>$</p>
         </div>
@@ -118,10 +118,10 @@
           name="campground[price]"
           id="location"
           placeholder="0.00"
-          class="flex-1 w-full px-3 py-2 bg-white border border-slate-300 rounded-r-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 transition ease-in 100ms peer"
+          class="100ms peer w-full flex-1 rounded-r-md border border-slate-300 bg-white px-3 py-2 text-sm placeholder-slate-400 shadow-sm transition ease-in invalid:border-pink-500 invalid:text-pink-600 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:border-slate-200 disabled:bg-slate-50 disabled:text-slate-500 disabled:shadow-none"
         />
         <span
-          class="min-w-full mt-2 hidden text-sm text-pink-600 peer-[&:invalid]:block"
+          class="mt-2 hidden min-w-full text-sm text-pink-600 peer-[&:invalid]:block"
         >
           Price is required!
         </span>
@@ -135,7 +135,7 @@
         type="text"
         name="campground[description]"
         id="description"
-        class="block w-full px-3 py-2 bg-white border border-slate-300 rounded -md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 transition ease-in 100ms peer"
+        class="-md 100ms peer block w-full rounded border border-slate-300 bg-white px-3 py-2 text-sm placeholder-slate-400 shadow-sm transition ease-in invalid:border-pink-500 invalid:text-pink-600 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:border-slate-200 disabled:bg-slate-50 disabled:text-slate-500 disabled:shadow-none"
       ></textarea>
       <span class="mt-2 hidden text-sm text-pink-600 peer-[&:invalid]:block">
         Description is required!
@@ -143,12 +143,12 @@
     </div>
     <button
       type="submit"
-      class="bg-green-600 text-white rounded-md px-2 py-1 font-medium group-invalid:pointer-events-none group-invalid:opacity-30"
+      class="rounded-md bg-green-600 px-2 py-1 font-medium text-white group-invalid:pointer-events-none group-invalid:opacity-30"
     >
       Add Campground
     </button>
   </form>
-  <a href="/campgrounds" class="text-blue-600 underline font-medium"
+  <a href="/campgrounds" class="font-medium text-blue-600 underline"
     >All Campgrounds</a
   >
 </div>

@@ -94,7 +94,7 @@ app.use(
       /* This says that, this cookie only work over HTTPS(HTTP secure). The cookies can only be configured over secure connections */
       /* secure: true, */
     },
-  })
+  }),
 );
 app.use(flash());
 
@@ -144,7 +144,7 @@ app.use(
         "https://images.unsplash.com/",
       ],
     },
-  })
+  }),
 );
 
 /* Make sure that session is used before passport.session */

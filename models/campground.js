@@ -49,7 +49,7 @@ const campgroundSchema = new Schema(
       },
     ],
   },
-  opts
+  opts,
 );
 
 campgroundSchema.virtual("properties.popUpMarkup").get(function () {

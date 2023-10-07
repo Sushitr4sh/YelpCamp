@@ -15,7 +15,7 @@ const marker1 = new mapboxgl.Marker()
       `
         <h1 class="text-lg font-black">${campground.title}</h1>
         <p>${campground.location}</p>
-      `
-    )
+      `,
+    ),
   )
   .addTo(map);

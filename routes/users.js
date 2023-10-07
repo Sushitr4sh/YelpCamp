@@ -27,7 +27,7 @@ router
       failureFlash: true,
       failureRedirect: "/login",
     }),
-    catchAsync(users.login)
+    catchAsync(users.login),
   );
 
 /*  in the latest versions of Passport.js, the req.logout() method now requires a callback function passed as an argument. Inside this callback function, we will handle any potential errors and also execute the code to set a flash message and redirect the user. */

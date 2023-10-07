@@ -4,9 +4,9 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
 
-<div class="flex gap-x-4 mx-auto">
+<div class="mx-auto flex gap-x-4">
   <div
-    class="rounded-md border border-slate-300 shadow-lg overflow-hidden self-start w-[50%]"
+    class="w-[50%] self-start overflow-hidden rounded-md border border-slate-300 shadow-lg"
   >
     <div id="controls-carousel" class="relative w-full" data-carousel="slide">
       <!-- Carousel wrapper -->
@@ -34,14 +34,14 @@
       <%if(campground.images.length > 1) {%>
       <button
         type="button"
-        class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+        class="group absolute left-0 top-0 z-30 flex h-full cursor-pointer items-center justify-center px-4 focus:outline-none"
         data-carousel-prev
       >
         <span
-          class="inline-flex items-center justify-center w-10 h-10 rounded-full"
+          class="inline-flex h-10 w-10 items-center justify-center rounded-full"
         >
           <svg
-            class="w-4 h-4 text-white"
+            class="h-4 w-4 text-white"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -60,14 +60,14 @@
       </button>
       <button
         type="button"
-        class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+        class="group absolute right-0 top-0 z-30 flex h-full cursor-pointer items-center justify-center px-4 focus:outline-none"
         data-carousel-next
       >
         <span
-          class="inline-flex items-center justify-center w-10 h-10 rounded-full"
+          class="inline-flex h-10 w-10 items-center justify-center rounded-full"
         >
           <svg
-            class="w-4 h-4 text-white"
+            class="h-4 w-4 text-white"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -88,23 +88,23 @@
     </div>
 
     <div class="mt-6 px-4 py-2">
-      <p class="font-semibold text-3xl"><%= campground.title %></p>
+      <p class="text-3xl font-semibold"><%= campground.title %></p>
       <p class="text-sm"><%= campground.description %></p>
     </div>
     <div class="w-full border-b border-slate-300"></div>
-    <p class="text-slate-400 px-4 py-2"><%= campground.location %></p>
+    <p class="px-4 py-2 text-slate-400"><%= campground.location %></p>
     <div class="w-full border-b border-slate-300"></div>
     <p class="px-4 py-2">
       Submitted by <b><%= campground.author.username %></b>
     </p>
     <div class="w-full border-b border-slate-300"></div>
-    <p class="font-medium px-4 py-2">$<%= campground.price %>/night</p>
+    <p class="px-4 py-2 font-medium">$<%= campground.price %>/night</p>
     <div class="w-full border-b border-slate-300"></div>
     <% if(currentUser && campground.author.equals(currentUser)) { %>
-    <div class="flex px-4 py-2 gap-x-2">
+    <div class="flex gap-x-2 px-4 py-2">
       <a
         href="/campgrounds/<%= campground._id %>/edit"
-        class="bg-sky-600 px-2 py-1 text-white font-medium rounded-mds"
+        class="rounded-mds bg-sky-600 px-2 py-1 font-medium text-white"
         >Edit</a
       >
       <form
@@ -113,7 +113,7 @@
       >
         <button
           type="submit"
-          class="bg-red-600 px-2 py-1 text-white font-medium rounded-mds"
+          class="rounded-mds bg-red-600 px-2 py-1 font-medium text-white"
         >
           Delete
         </button>
@@ -123,17 +123,17 @@
   </div>
 
   <div class="w-[50%]">
-    <div id="map" class="w-full h-64 rounded-md border border-slate-300"></div>
+    <div id="map" class="h-64 w-full rounded-md border border-slate-300"></div>
     <% if(currentUser) { %>
-    <h2 class="font-bold text-3xl mt-4">Leave a Review</h2>
+    <h2 class="mt-4 text-3xl font-bold">Leave a Review</h2>
     <form
       action="/campgrounds/<%= campground._id %>/reviews"
       method="POST"
-      class="mt-2 flex flex-col group"
+      class="group mt-2 flex flex-col"
       novalidate
     >
       <fieldset class="starability-basic mb-2">
-        <legend class="font-semibold mb-1">Rating:</legend>
+        <legend class="mb-1 font-semibold">Rating:</legend>
         <input
           type="radio"
           id="no-rate"
@@ -155,31 +155,31 @@
         <label for="first-rate5" title="Amazing">5 stars</label>
       </fieldset>
       <div>
-        <label for="body" class="font-semibold block">Review</label>
+        <label for="body" class="block font-semibold">Review</label>
         <textarea
           required
           name="review[body]"
           id="body"
-          class="block w-full px-3 py-2 bg-white border border-slate-300 rounded -md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 transition ease-in 100ms peer"
+          class="-md 100ms peer block w-full rounded border border-slate-300 bg-white px-3 py-2 text-sm placeholder-slate-400 shadow-sm transition ease-in invalid:border-pink-500 invalid:text-pink-600 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:border-slate-200 disabled:bg-slate-50 disabled:text-slate-500 disabled:shadow-none"
         ></textarea>
         <span class="mt-2 hidden text-sm text-pink-600 peer-[&:invalid]:block">
           Description is required!
         </span>
       </div>
       <button
-        class="mt-2 self-end bg-green-600 text-white rounded-md px-2 py-1 font-medium group-invalid:pointer-events-none group-invalid:opacity-30"
+        class="mt-2 self-end rounded-md bg-green-600 px-2 py-1 font-medium text-white group-invalid:pointer-events-none group-invalid:opacity-30"
       >
         Submit
       </button>
     </form>
     <% } else { %>
     <p class="mt-2">
-      <a href="/login" class="underline text-blue-800">Login</a>, to leave a
+      <a href="/login" class="text-blue-800 underline">Login</a>, to leave a
       review!
     </p>
     <% } %> <% for(let review of campground.reviews){ %>
-    <div class="px-4 py-2 mt-3 border border-slate-300 rounded-md shadow-md">
-      <div class="flex h-full items-center gap-x-4 mb-2">
+    <div class="mt-3 rounded-md border border-slate-300 px-4 py-2 shadow-md">
+      <div class="mb-2 flex h-full items-center gap-x-4">
         <p class="starability-result -z-10" data-rating="<%= review.rating %>">
           Rated: <%= review.rating %> stars
         </p>
@@ -187,7 +187,7 @@
           <%= review.relativeTime %>
         </p>
       </div>
-      <p class="text-blue-600 text-xs opacity-75">
+      <p class="text-xs text-blue-600 opacity-75">
         @<%= review.author.username %>
       </p>
       <div class="flex w-full justify-between">
@@ -197,7 +197,7 @@
           action="/campgrounds/<%= campground._id %>/reviews/<%= review._id %>?_method=DELETE"
           method="POST"
         >
-          <button class="text-red-600 rounded-md font-medium">Delete</button>
+          <button class="rounded-md font-medium text-red-600">Delete</button>
         </form>
         <% } %>
       </div>

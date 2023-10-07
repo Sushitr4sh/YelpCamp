@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -11,43 +11,43 @@
       rel="stylesheet"
     />
   </head>
-  <body class="flex flex-col justify-between w-full h-[100vh] bg-dark py-4">
-    <nav class="flex items-center justify-between w-[60vw] mx-auto">
+  <body class="flex h-[100vh] w-full flex-col justify-between bg-dark py-4">
+    <nav class="mx-auto flex w-[60vw] items-center justify-between">
       <div>
-        <a href="/" class="text-xl text-white font-semibold mr-2">YelpCamp</a>
+        <a href="/" class="mr-2 text-xl font-semibold text-white">YelpCamp</a>
       </div>
       <div class="text-white">
         <% if(!currentUser){ %>
         <a
           href="/campgrounds"
-          class="opacity-50 hover:opacity-100 hover:underline transition duration-150 ease-in mr-4"
+          class="mr-4 opacity-50 transition duration-150 ease-in hover:underline hover:opacity-100"
           >Campgrounds</a
         >
         <a
           href="/login"
-          class="opacity-50 hover:opacity-100 hover:underline transition duration-150 ease-in mr-4"
+          class="mr-4 opacity-50 transition duration-150 ease-in hover:underline hover:opacity-100"
           >Login</a
         >
         <a
           href="/register"
-          class="opacity-50 hover:opacity-100 hover:underline transition duration-150 ease-in"
+          class="opacity-50 transition duration-150 ease-in hover:underline hover:opacity-100"
           >Register</a
         >
         <% } else { %>
         <div class="flex gap-x-2">
           <a
             href="/"
-            class="opacity-100 underline transition duration-150 ease-in 50ms mr-4"
+            class="50ms mr-4 underline opacity-100 transition duration-150 ease-in"
             >Home</a
           >
           <a
             href="/campgrounds"
-            class="opacity-50 hover:opacity-100 hover:underline transition duration-150 ease-in 50ms mr-4"
+            class="50ms mr-4 opacity-50 transition duration-150 ease-in hover:underline hover:opacity-100"
             >Campgorunds</a
           >
           <a
             href="/logout"
-            class="opacity-50 hover:opacity-100 hover:underline transition duration-150 ease-in 50ms"
+            class="50ms opacity-50 transition duration-150 ease-in hover:underline hover:opacity-100"
             >Logout</a
           >
         </div>
@@ -55,9 +55,9 @@
       </div>
     </nav>
 
-    <main class="text-center w-[60vw] mx-auto text-white">
+    <main class="mx-auto w-[60vw] text-center text-white">
       <a href="/" class="text-4xl font-semibold">YelpCamp</a>
-      <div class="mt-4 mb-6">
+      <div class="mb-6 mt-4">
         <p>Welcome to YelpCamp!</p>
         <p class="mt-1">
           Jump right in and explore our many campgrounds. <br />
@@ -66,14 +66,14 @@
       </div>
       <a
         href="/campgrounds"
-        class="border border-white rounded-lg text-white py-2 px-4 font-semibold hover:text-[#333] hover:bg-white transition duration-150 ease-in"
+        class="rounded-lg border border-white px-4 py-2 font-semibold text-white transition duration-150 ease-in hover:bg-white hover:text-[#333]"
         id="getStarted"
         >Get Started</a
       >
     </main>
 
     <footer>
-      <p class="text-gray-500 font-medium text-center">&copy;2023</p>
+      <p class="text-center font-medium text-gray-500">&copy;2023</p>
     </footer>
   </body>
 </html>
