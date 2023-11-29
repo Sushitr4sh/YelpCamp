@@ -63,7 +63,7 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
-app.use(mongoSanitize());
+/* app.use(mongoSanitize()); */
 
 const secret = process.env.SECRET || "squirrel";
 const store = MongoStore.create({
@@ -99,7 +99,7 @@ app.use(
 app.use(flash());
 
 /* This automatically enables all 11 of the helmet middleware that helmet comes with */
-app.use(helmet());
+/* app.use(helmet()); */
 const scriptSrcUrls = [
   "https://api.tiles.mapbox.com/",
   "https://api.mapbox.com/",
@@ -127,7 +127,7 @@ const connectSrcUrls = [
 ];
 const fontSrcUrls = ["https://fonts.googleapis.com/"];
 
-app.use(
+/* app.use(
   helmet.contentSecurityPolicy({
     directives: {
       defaultSrc: [],
@@ -145,7 +145,7 @@ app.use(
       ],
     },
   }),
-);
+); */
 
 /* Make sure that session is used before passport.session */
 app.use(passport.initialize());
